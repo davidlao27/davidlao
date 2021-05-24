@@ -37,7 +37,7 @@
             }
         }
 
-        function clearCookies() {
+        function clearCookieName() {
             var user = getCookie("username");
             document.cookie = "username= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
             alert("Ok! Cleared.")
@@ -46,7 +46,8 @@
     </script>
 </head>
 
+<p><p align="center" onclick="clearCookieName()">Clear username cookie...</p></b>
+
 <body onload="checkCookie()">
 </body>
-
 </html>
