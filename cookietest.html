@@ -26,13 +26,19 @@
         }
 
         function checkCookie() {
-            var user = getCookie("username");
-            if (user != "") {
-                document.getElementById("whois").innerHTML = "Welcome back, " + user;
+            var usere = getCookie("username");
+            if (usere != "") {
+                document.getElementById("whois").innerHTML = "You are already registered, " + usere + ". You can clear your registration though.";
             } else {
-                user = prompt("Please enter your name:", "");
+                user = prompt("Register", "Looks like you clicked the Guest button in the webpage. This button is used for registering your name! Just like a login. It will last for 365 days, so go for a vacation while it expires. You can clear it and re-register! Cookies are secure, since they're local.");
                 if (user != "" && user != null) {
-                    setCookie("username", user, 30);
+                    if (user.length <= 20) {
+                        setCookie("username", user, 365);
+                        window.location.href = "https://davidlao27.github.io/davidlao";
+                    } else {
+                        alert("That was too short! Try again.");
+                        checkCookie();
+                    }
                 }
             }
         }
@@ -45,9 +51,9 @@
     </script>
 </head>
 
-<body onload="checkCookie()">
+<body bgcolor="green" onload="checkCookie()">
     <b><p align="center" onclick="clearCookieName()">Clear username cookie...</p></b>
 
-    <p align="center" id="whois">Set the cookie to get welcomed back! :)</p>
+    <p align="center" id="whois">Guest</p>
 </body>
 </html>
