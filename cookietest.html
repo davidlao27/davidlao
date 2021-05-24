@@ -30,7 +30,7 @@
             if (usere != "") {
                 document.getElementById("whois").innerHTML = "You are already registered, " + usere + ". You can clear your registration though.";
             } else {
-                user = prompt("Register", "Looks like you clicked the Guest button in the webpage. This button is used for registering your name! Just like a login. It will last for 365 days, so go for a vacation while it expires. You can clear it and re-register! Cookies are secure, since they're local.");
+                user = prompt("Looks like you clicked the Guest button in the webpage. This button is used for registering your name! Just like a login. It will last for 365 days, so go for a vacation while it expires. You can clear it and re-register! Cookies are secure, since they're local.", "");
                 if (user != "" && user != null) {
                     if (user.length <= 20) {
                         setCookie("username", user, 365);
@@ -55,5 +55,6 @@
     <b><p align="center" onclick="clearCookieName()">Clear username cookie...</p></b>
 
     <p align="center" id="whois">Guest</p>
+    <a href="https://davidlao27.github.io/davidlao">Go back.</a>
 </body>
 </html>
