@@ -39,7 +39,7 @@
 
         function clearCookieName() {
             var user = getCookie("username");
-            document.cookie = "username= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+            setCookie(user, '', -1);
             alert("Ok! Cleared.")
         }
 
