@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            var usere = getCookie("username");
+            if (usere != "") {
+                document.getElementById("whois").innerHTML = "You are already registered, " + usere + ". You can clear your registration though.";
+            } else {
+                user = prompt("Looks like you clicked the Guest button in the webpage. This button is used for registering your name! Just like a login. It will last for 365 days, so go for a vacation while it expires. You can clear it and re-register! Cookies are secure, since they're local.", "");
+                if (user != "" && user != null) {
+                    if (user.length <= 20) {
+                        setCookie("username", user, 365);
+                        window.location.href = "https://davidlao27.github.io/davidlao";
+                    } else {
+                        alert("That was too short! Try again.");
+                        checkCookie();
+                    }
+                }
+            }
+        }
+
+        function clearCookieName() {
+            var user = "username";
+            setCookie(user, '', -1);
+            alert("Ok! Cleared.")
+        }
+    </script>
+</head>
+
+<body bgcolor="green" onload="checkCookie()">
+    <b><p align="center" onclick="clearCookieName()">Clear username cookie...</p></b>
+
+    <p align="center" id="whois">Guest</p>
+    <center><font size="4"><a href="https://davidlao27.github.io/davidlao">Go back.</a></font></center>
+</body>
+</html>

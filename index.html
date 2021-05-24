@@ -29,7 +29,8 @@
 
         .topnav {
             overflow: hidden;
-            background-color: #333;
+            background-color: #222;
+            box-shadow: 0px 0px 10px 2px #000000;
         }
 
             .topnav a {
@@ -71,6 +72,29 @@
             .fa:hover {
                 opacity: 0.7;
             }
+
+        @keyframes mymove {
+            50% {
+                transform: rotate(15deg);
+            }
+        }
+
+        .rotEle {
+            margin: auto;
+            padding: 5vw;
+            display: flex;
+            animation: mymove 1s infinite;
+        }
+
+        font {
+            -webkit-filter: drop-shadow(5px 5px 2px #000);
+            filter: drop-shadow(5px 5px 2px #000);
+        }
+
+        img {
+            -webkit-filter: drop-shadow(5px 5px 5px #000);
+            filter: drop-shadow(5px 5px 10px #000);
+        }
         }
     </style>
     <script>
@@ -110,20 +134,34 @@
             setCookie(user, '', -1);
             alert("Ok! Cleared.")
         }
+
+        function changeReg(eleme) {
+            eleme.innerHTML = "Register";
+        }
+
+        function revertReg(eleme) {
+            var user = getCookie("username");
+            if (user != "") {
+                eleme.innerHTML = user;
+            } else {
+                eleme.innerHTML = "Guest";
+            }
+        }
     </script>
 </head>
 <body bgcolor="black" background="images/albumbg.png" onload="checkCookie()">
     <div class="topnav">
         <a href="https://davidlao27.github.io/davidlao/stuff">Stuff</a>
         <a href="https://www.youtube.com/channel/UCTJydcT1E97aEx-8bHYgsWg">YouTube</a>
-        <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
-        <a href="https://davidlao27.github.io/davidlao/cookietest" style="float: right;" id="whois">Guest</a>
-    <!-- Other pokemon can walk... but I can walk. -->
+        <a href="https://davidlao27.github.io/davidlao/register" style="float: right;" id="whois" onmouseover="changeReg(this)" onmouseleave="revertReg(this)">Guest</a>
+        <!-- Other pokemon can walk... but I can walk. -->
     </div>
-    <!--<div class="topnav">
-        <font size="3" color="red"><b><p align="center">BREAKING NEWS: STILL ALIVE!!!</p></b></font>
-    </div>-->
+    <!--<div class="topnav"><font size="2" color="lightgreen"><b><p align="center">Cool features coming soon!</p></b></font></div>-->
     <br>
     <br>
-    </body>
+    <img src="images/anim/proto.png" width="300vh" height="300vh" class="rotEle"></img>
+    <center><font size="5">Welcome! Big update soon.</font></center>
+    <br>
+    <center><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></center>
+</body>
 </html>
