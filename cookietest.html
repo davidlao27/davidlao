@@ -28,7 +28,7 @@
         function checkCookie() {
             var user = getCookie("username");
             if (user != "") {
-                alert("Welcome back, " + user);
+                document.getElementById("whois").innerHTML = "Welcome back, " & user;
             } else {
                 user = prompt("Please enter your name:", "");
                 if (user != "" && user != null) {
@@ -46,7 +46,8 @@
     </script>
 </head>
 
-<p><p align="center" onclick="clearCookieName()">Clear username cookie...</p></b>
+<b><p align="center" onclick="clearCookieName()">Clear username cookie...</p></b>
+<p align="center" id="whois">Set the cookie to get welcomed back! :)</p>
 
 <body onload="checkCookie()">
 </body>
