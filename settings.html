@@ -152,20 +152,20 @@
         function changeTheme() {
             if (getCookie("theme") == "light") {
                 setCookie("theme", ".", -1)
-                alert("Ok! Theme is now dark.");
+                window.location.reload()
             } else {
                 setCookie("theme", "light", 365);
-                alert("Ok! Theme is now light. Watch out...");
+                window.location.reload()
             }
         }
 
         function changeStared() {
             if (getCookie("stared") != "") {
                 setCookie("stared", ".", -1);
-                alert("Stared Mode is now off.");
+                window.location.reload()
             } else {
                 setCookie("stared", "yes", 365);
-                alert("You are now in Stared Mode.");
+                window.location.reload()
             }
         }
 
