@@ -155,7 +155,7 @@
                 setCookie(theme, '', -1);
                 alert("Ok! Theme is now dark.");
             } else {
-                setCookie("theme", 'light', 365);
+                setCookie(theme, 'light', 365);
                 alert("Ok! Theme is now light. Watch out...");
             }
         }
@@ -164,9 +164,9 @@
             var stared = "stared";
             if (stared == "yes") {
                 setCookie(stared, '', -1);
-                alert("You are no longer in Stared Mode.");
+                alert("Stared Mode is now off.")
             } else {
-                setCookie(stared, "yes", 365);
+                setCookie(stared, 'yes', 365);
                 alert("You are now in Stared Mode.");
             }
         }
@@ -182,10 +182,6 @@
             } else {
                 eleme.innerHTML = "Guest";
             }
-        }
-
-        function registerRedirect() {
-            document.location = "https://davidlao27.github.io/register";
         }
     </script>
 </head>
