@@ -150,12 +150,11 @@
         }
 
         function changeTheme() {
-            var theme = "theme";
-            if (theme == "yes") {
-                setCookie("theme", "", -1)
+            if (theme == "light") {
+                setCookie("theme", ".", -1)
                 alert("Ok! Theme is now dark.");
             } else {
-                setCookie(theme, 'light', 365);
+                setCookie("theme", "light", 365);
                 alert("Ok! Theme is now light. Watch out...");
             }
         }
