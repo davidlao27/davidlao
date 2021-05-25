@@ -161,10 +161,10 @@
 
         function changeStared() {
             if (getCookie("stared") != "") {
-                setCookie(stared, '', -1);
+                setCookie("stared", '', -1);
                 alert("Stared Mode is now off.");
             } else {
-                setCookie(stared, 'yes', 365);
+                setCookie("stared", 'yes', 365);
                 alert("You are now in Stared Mode.");
             }
         }
