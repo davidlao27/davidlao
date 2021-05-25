@@ -150,7 +150,7 @@
         }
 
         function changeTheme() {
-            if (theme == "light") {
+            if (getCookie("theme") == "light") {
                 setCookie("theme", ".", -1)
                 alert("Ok! Theme is now dark.");
             } else {
