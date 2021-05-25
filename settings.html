@@ -167,7 +167,7 @@
         function changeStared() {
             var stared = "stared";
             if (stared == "yes") {
-                setCookie(theme, '', -1);
+                setCookie(stared, '', -1);
                 alert("You are no longer in Stared Mode.");
             } else {
                 setCookie(stared, "yes", 365);
@@ -196,7 +196,6 @@
 <body bgcolor="black" onload="checkCookie()">
     <div class="topnav">
         <a href="https://davidlao27.github.io/davidlao/">Back</a>
-        <a href="https://davidlao27.github.io/davidlao/register" style="float: right;" id="whois" onmouseover="changeReg(this)" onmouseleave="revertReg(this)">Guest</a>
         <!-- Other pokemon can walk... but I can walk. -->
     </div>
     <!--<div class="topnav"><font size="2" color="lightgreen"><b><p align="center">Cool features coming soon!</p></b></font></div>-->
