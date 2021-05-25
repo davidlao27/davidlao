@@ -40,6 +40,8 @@
                 padding: 14px 16px;
                 text-decoration: none;
                 font-size: 17px;
+                -webkit-filter: drop-shadow(5px 5px 2px #000);
+                filter: drop-shadow(5px 5px 2px #000);
             }
 
                 .topnav a:hover {
@@ -147,21 +149,27 @@
                 eleme.innerHTML = "Guest";
             }
         }
+
+        function stare() {
+            var protoStare = document.getElementById("protoStare");
+            protoStare.src = "images/stare.png"
+            alert("Y o u  a c t i v a t e d  s t a r e  m o d e .");
+        }
     </script>
 </head>
 <body bgcolor="black" background="images/albumbg.png" onload="checkCookie()">
     <div class="topnav">
-        <a href="https://davidlao27.github.io/davidlao/stuff">Stuff</a>
-        <a href="https://www.youtube.com/channel/UCTJydcT1E97aEx-8bHYgsWg">YouTube</a>
+        <a href="https://davidlao27.github.io/davidlao/stuff">Other Stuff</a>
         <a href="https://davidlao27.github.io/davidlao/register" style="float: right;" id="whois" onmouseover="changeReg(this)" onmouseleave="revertReg(this)">Guest</a>
         <!-- Other pokemon can walk... but I can walk. -->
+        <!--<a href="https://www.youtube.com/channel/UCTJydcT1E97aEx-8bHYgsWg" style="float: right;">YouTube</a>-->
     </div>
     <!--<div class="topnav"><font size="2" color="lightgreen"><b><p align="center">Cool features coming soon!</p></b></font></div>-->
     <br>
     <br>
-    <img src="images/anim/proto.png" width="300vh" height="300vh" class="rotEle"></img>
+    <img src="images/anim/proto.png" width="200vh" height="200vh" class="rotEle" id="protoStare" onclick="stare()"></img>
     <center><font size="5">Welcome! Big update soon.</font></center>
     <br>
-    <center><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></center>
+    <center><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" width="66" height="23" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></center>
 </body>
 </html>
