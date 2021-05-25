@@ -131,7 +131,9 @@
         function checkCookie() {
             var user = getCookie("username");
             var theme = getCookie("theme");
+            var stared = getCookie("stared");
             var ltswitch = document.getElementById("lightmodeSwitch");
+            var staredswitch = document.getElementById("staredSwitch");
 
             if (user != "") {
                 document.getElementById("whois").innerHTML = user;
@@ -139,9 +141,15 @@
 
             if (theme == "light") {
                 setTheme('white', 'black')
-                ltswitch.innerHTML = "Light Mode: ON";
+                ltswitch.innerHTML = "Light Mode: ON [BETA]";
             } else {
-                ltswitch.innerHTML = "Light Mode: OFF";
+                ltswitch.innerHTML = "Light Mode: OFF [BETA]";
+            }
+
+            if (stared == "yes") {
+                staredswitch.innerHTML = "Stared Mode: ON";
+            } else {
+                staredswitch.innerHTML = "Stared Mode: OFF";
             }
         }
 
@@ -153,6 +161,17 @@
             } else {
                 setCookie("theme", 'light', 365);
                 alert("Ok! Theme is now light. Watch out...");
+            }
+        }
+
+        function changeStared() {
+            var stared = "stared";
+            if (stared == "yes") {
+                setCookie(theme, '', -1);
+                alert("You are no longer in Stared Mode.");
+            } else {
+                setCookie(stared, "yes", 365);
+                alert("You are now in Stared Mode.");
             }
         }
 
@@ -184,9 +203,12 @@
     <br>
     <br>
     <center><font size="6">Settings</font></center>
-    <center><font size="4" color="red" id="notRegistered" onclick="registerRedirect()">Register</font></center>
-    <br<br><br>
-    <center><font size="3" id="lightmodeSwitch" onclick="changeTheme()">Light Mode</font></center>
+    <center><font size="4" color="red" id="notRegistered" onclick="registerRedirect()">Register clicking here!</font></center>
+    <br<br>
+    <center><font size="5">Click any setting to change it.</font></center>
+    <br<br><br><br>
+    <center><font size="4" id="lightmodeSwitch" onclick="changeTheme()">Light Mode</font></center><br>
+    <center><font size="4" id="staredSwitch" onclick="changeStared()">Stared Mode</font></center>
     <br>
     <br>
 </body>

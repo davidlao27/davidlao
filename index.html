@@ -100,6 +100,11 @@
         }
     </style>
     <script>
+        function setTheme(color, fcolor) {
+            document.body.style.background = color;
+            document.body.style.color = fcolor;
+        }
+
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -126,6 +131,7 @@
         function checkCookie() {
             var user = getCookie("username");
             var theme = getCookie("theme");
+            var isStared = getCookie("stared");
 
             if (user != "") {
                 document.getElementById("whois").innerHTML = user;
@@ -133,6 +139,10 @@
 
             if (theme == "light") {
                 setTheme('white', 'black')
+            }
+
+            if (isStared != "") {
+                stare();
             }
         }
 
@@ -179,8 +189,8 @@
     <!--<div class="topnav"><font size="2" color="lightgreen"><b><p align="center">Cool features coming soon!</p></b></font></div>-->
     <br>
     <br>
-    <img src="images/anim/proto.png" width="200vh" height="200vh" class="rotEle" id="protoStare" onclick="stare()"></img>
-    <center><font size="5">Welcome. This will be updated soon.</font></center>
+    <img src="images/anim/proto.png" width="200vh" height="200vh" class="rotEle" id="protoStare"></img>
+    <center><font size="5">Welcome. Update soon!</font></center>
     <br>
     <center><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" width="66" height="23" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></center>
 </body>
