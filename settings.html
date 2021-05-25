@@ -162,7 +162,7 @@
 
         function changeStared() {
             var stared = "stared";
-            if (stared == "yes") {
+            if (stared != "") {
                 setCookie(stared, '', -1);
                 alert("Stared Mode is now off.");
             } else {
