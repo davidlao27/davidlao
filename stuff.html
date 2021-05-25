@@ -83,7 +83,7 @@
 
         .rotEle {
             margin: auto;
-            padding: 5vw;
+            padding: 2vw;
             display: flex;
             animation: mymove 1s infinite;
         }
@@ -119,9 +119,14 @@
 
         function checkCookie() {
             var user = getCookie("username");
+            var theme = getCookie("theme");
+
             if (user != "") {
                 document.getElementById("whois").innerHTML = user;
-            } else {
+            }
+
+            if (theme == "light") {
+                setTheme('white', 'black')
             }
         }
 

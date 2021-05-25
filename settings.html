@@ -83,7 +83,6 @@
 
         .rotEle {
             margin: auto;
-            padding: 2vw;
             display: flex;
             animation: mymove 1s infinite;
         }
@@ -100,6 +99,12 @@
         }
     </style>
     <script>
+
+        function setTheme(color,fcolor) {
+            document.body.style.background = color;
+            document.body.style.color = fcolor;
+        }
+
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -126,6 +131,7 @@
         function checkCookie() {
             var user = getCookie("username");
             var theme = getCookie("theme");
+            var ltswitch = document.getElementById("lightmodeSwitch");
 
             if (user != "") {
                 document.getElementById("whois").innerHTML = user;
@@ -133,21 +139,21 @@
 
             if (theme == "light") {
                 setTheme('white', 'black')
-            }
-        }
-
-        function checkSettings() {
-            var isStared = getCookie("stared");
-            if (user != "") {
-                stare();
+                ltswitch.innerHTML = "Light Mode: ON";
             } else {
+                ltswitch.innerHTML = "Light Mode: OFF";
             }
         }
 
-        function clearCookieName() {
-            var user = "username";
-            setCookie(user, '', -1);
-            alert("Ok! Cleared.")
+        function changeTheme() {
+            var theme = "theme";
+            if (theme == "light") {
+                setCookie(theme, '', -1);
+                alert("Ok! Theme is now dark.");
+            } else {
+                setCookie("theme", 'light', 365);
+                alert("Ok! Theme is now light. Watch out...");
+            }
         }
 
         function changeReg(eleme) {
@@ -163,25 +169,25 @@
             }
         }
 
-        function stare() {
-            var protoStare = document.getElementById("protoStare");
-            protoStare.src = "images/stare.png"
+        function registerRedirect() {
+            document.location = "https://davidlao27.github.io/register";
         }
     </script>
 </head>
-<body bgcolor="black" background="images/albumbg.png" onload="checkCookie(); checkSettings();">
+<body bgcolor="black" onload="checkCookie()">
     <div class="topnav">
-        <a href="https://davidlao27.github.io/davidlao/stuff">Other Stuff</a>
-        <a href="https://davidlao27.github.io/davidlao/settings" style="float: right;" id="whois" onmouseover="changeReg(this)" onmouseleave="revertReg(this)">Guest</a>
+        <a href="https://davidlao27.github.io/davidlao/">Back</a>
+        <a href="https://davidlao27.github.io/davidlao/register" style="float: right;" id="whois" onmouseover="changeReg(this)" onmouseleave="revertReg(this)">Guest</a>
         <!-- Other pokemon can walk... but I can walk. -->
-        <!--<a href="https://www.youtube.com/channel/UCTJydcT1E97aEx-8bHYgsWg" style="float: right;">YouTube</a>-->
     </div>
     <!--<div class="topnav"><font size="2" color="lightgreen"><b><p align="center">Cool features coming soon!</p></b></font></div>-->
     <br>
     <br>
-    <img src="images/anim/proto.png" width="200vh" height="200vh" class="rotEle" id="protoStare" onclick="stare()"></img>
-    <center><font size="5">Welcome. This will be updated soon.</font></center>
+    <center><font size="6">Settings</font></center>
+    <center><font size="4" color="red" id="notRegistered" onclick="registerRedirect()">Register</font></center>
+    <br<br><br>
+    <center><font size="3" id="lightmodeSwitch" onclick="changeTheme()">Light Mode</font></center>
     <br>
-    <center><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" width="66" height="23" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></center>
+    <br>
 </body>
 </html>
