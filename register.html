@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        body {
+            color: white;
+            font-family: 'Segoe UI',Arial,sans-serif;
+        }
+    </style>
     <script>
+        function setTheme(color, fcolor) {
+            document.body.style.background = color;
+            document.body.style.color = fcolor;
+        }
+
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -26,8 +37,7 @@
         }
 
         function checkCookie() {
-            var usere = getCookie("username");
-            if (usere != "") {
+            if (getCookie("username") != "") {
                 document.getElementById("whois").innerHTML = "You are already registered, " + usere + ". You can clear your registration though.";
             } else {
                 user = prompt("Looks like you clicked the Guest button in the webpage. This button is used for registering your name! Just like a login. It will last for 365 days, so go for a vacation while it expires. You can clear it and re-register! Cookies are secure, since they're local.", "");
@@ -41,6 +51,10 @@
                     }
                 }
             }
+
+            if (getCookie("theme") == "light") {
+                setTheme('white', 'black');
+            }
         }
 
         function clearCookieName() {
@@ -48,13 +62,17 @@
             setCookie(user, '', -1);
             alert("Ok! Cleared.")
         }
+
+        function goBack() {
+            window.location.href = "https://davidlao27.github.io/davidlao";
+        }
     </script>
 </head>
 
-<body bgcolor="green" onload="checkCookie()">
+<body bgcolor="black" onload="checkCookie()">
     <b><p align="center" onclick="clearCookieName()">Clear username cookie...</p></b>
 
     <p align="center" id="whois">Guest</p>
-    <center><font size="4"><a href="https://davidlao27.github.io/davidlao">Go back.</a></font></center>
+    <center><font size="4" color="red"><a onclick="goBack()"><b>Go back.</b></a></font></center>
 </body>
 </html>
