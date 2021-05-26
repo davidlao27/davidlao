@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html profile ="http://www.w3.org/2005/10/profile">
+<head>
+    <link rel="icon" type="image/png" href="epicpad.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="davidlao's web - Epic Pad" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://davidlao27.github.io/davidlao" />
+    <meta property="og:description" content="Play some stuff!" />
+    <meta name="theme-color" content="#0F0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>davidlao - epicpad</title>
+    <style>
+        body {
+            font-family: 'Segoe UI',Arial,sans-serif;
+            margin: 0;
+            color: white;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        button {
+            background-color: Transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #222;
+            box-shadow: 0px 0px 10px 2px #000000;
+        }
+
+            .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 1vw 16px;
+                text-decoration: none;
+                font-size: 14px;
+                -webkit-filter: drop-shadow(5px 5px 2px #000);
+                filter: drop-shadow(5px 5px 2px #000);
+            }
+
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .topnav a.active {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+
+        p {
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        .button4 {
+            border-radius: 12px;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+        }
+
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+        .rotEle {
+            margin: auto;
+            padding: 2vw;
+            display: flex;
+            animation: mymove 1s infinite;
+        }
+
+        #audioAuto {
+            display: none
+        }
+        }
+    </style>
+    <script>
+        function setTheme(color, fcolor) {
+            document.body.style.background = color;
+            document.body.style.color = fcolor;
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            var user = getCookie("username");
+            var theme = getCookie("theme");
+
+            if (user != "") {
+                document.getElementById("whois").innerHTML = user;
+            }
+
+            if (theme == "light") {
+                setTheme('white', 'black')
+            }
+        }
+
+        function clearCookieName() {
+            var user = "username";
+            setCookie(user, '', -1);
+            alert("Ok! Cleared.")
+        }
+
+        function changeReg(eleme) {
+            eleme.innerHTML = "Register";
+        }
+
+        function revertReg(eleme) {
+            var user = getCookie("username");
+            if (user != "") {
+                eleme.innerHTML = user;
+            } else {
+                eleme.innerHTML = "Guest";
+            }
+        }
+
+        //Keys for David's EpicPad Default
+        function playk(url) {
+            sound = new Audio(url);
+            sound.volume = 0.5;
+            sound.play();
+        }
+
+        //QWERTYUIOP
+        document.addEventListener("keypress", function (event) {
+            if (event.key == "q") {
+                playk('audio/epicpad/david/progD.mp3');
+            } else if (event.key == "w") {
+                playk('audio/epicpad/david/progU.mp3');
+            } else if (event.key == "e") {
+                playk('audio/epicpad/david/cutA.mp3');
+            } else if (event.key == "r") {
+                playk('audio/epicpad/david/cutE.mp3');
+            } else if (event.key == "t") {
+                playk('audio/epicpad/david/cutI.mp3');
+            } else if (event.key == "y") {
+                playk('audio/epicpad/david/cutO.mp3');
+            } else if (event.key == "u") {
+                playk('audio/epicpad/david/dinD.mp3');
+            } else if (event.key == "i") {
+                playk('audio/epicpad/david/dinS.mp3');
+            } else if (event.key == "o") {
+                playk('audio/epicpad/david/dinSM.mp3');
+            } else if (event.key == "p") {
+                playk('audio/epicpad/david/dinF.mp3');
+            }
+        });
+    </script>
+</head>
+<body bgcolor="black" onload="checkCookie()">
+    <div class="topnav">
+        <a href="https://davidlao27.github.io/davidlao">Exit</a>
+        <a href="https://davidlao27.github.io/davidlao/settings" style="float: right;" id="whois" onmouseover="changeReg(this)" onmouseleave="revertReg(this)">Guest</a>
+        <a href="https://www.youtube.com/channel/UCTJydcT1E97aEx-8bHYgsWg" style="float: right;">Help</a>
+        <!-- Other pokemon can walk... but I can walk. -->
+    </div>
+    <!--<div class="topnav"><font size="2" color="lightgreen"><b><p align="center">Cool features coming soon!</p></b></font></div>-->
+    <br>
+    <br>
+    <center>
+        <font size="5" color="red" id="curious">davidlao's EpicPad</font><br>
+        <font size="3" id="curious">remember to have caps lock off for this pad to fully work!</font>
+        <br>
+        <br>
+        <font size="4" color="red" id="curious">Moonbase Alpha Ripped Sample Set 1.0</font><br>
+        <div style="display: inline-grid;">
+            <img style="background-color: greenyellow; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/progD.mp3');" />
+            <font size="4" id="curious">Prog. Down [Q]</font>
+        </div>
+
+        <div style="display: inline-grid;">
+            <img style="background-color: greenyellow; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/progU.mp3');" />
+            <font size="4" id="curious">Prog. Up [W]</font>
+        </div>
+
+        <div style="display: inline-grid;">
+            <img style="background-color: deepskyblue; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/cutA.mp3');" />
+            <font size="4" id="curious">Vocal A [E]</font>
+        </div>
+
+        <div style="display: inline-grid;">
+            <img style="background-color: deepskyblue; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/cutE.mp3');" />
+            <font size="4" id="curious">Vocal E [R]</font>
+        </div>
+
+        <div style="display: inline-grid;">
+            <img style="background-color: deepskyblue; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/cutI.mp3');" />
+            <font size="4" id="curious">Vocal I [T]</font>
+        </div>
+
+        <div style="display: inline-grid;">
+            <img style="background-color: deepskyblue; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/cutO.mp3');" />
+            <font size="4" id="curious">Vocal O [Y]</font>
+        </div>
+
+        <div style="display: inline-grid;">
+            <img style="background-color: orangered; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/dinD.mp3');" />
+            <font size="4" id="curious">Ding 1 [U]</font>
+        </div>
+
+        <div style="display: inline-grid;">
+            <img style="background-color: orangered; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/dinS.mp3');" />
+            <font size="4" id="curious">Ding 2 [I]</font>
+        </div>
+
+        <div style="display: inline-grid;">
+            <img style="background-color: orangered; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/dinSM.mp3');" />
+            <font size="4" id="curious">Ding 3 [O]</font>
+        </div>
+
+        <div style="display: inline-grid;">
+            <img style="background-color: orangered; display: flex; position:relative; margin: 1vw;" width="90vh" height="90vw" onclick="playk('audio/epicpad/david/dinF.mp3');" />
+            <font size="4" id="curious">Ding 4 [P]</font>
+        </div>
+        <br>
+    </center>
+</body>
+    </html>

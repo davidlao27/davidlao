@@ -1,13 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html profile="http://www.w3.org/2005/10/profile">
 <head>
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="davidlao's web" />
+    <meta property="og:title" content="davidlao's web - stuff" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://davidlao27.github.io/davidlao" />
-    <meta property="og:description" content="a cool page" />
+    <meta property="og:description" content="cool stuff I, davidlao, made!" />
     <meta name="theme-color" content="#FF0000">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>davidlao</title>
+    <title>davidlao - stuff</title>
     <style>
         body {
             font-family: 'Segoe UI',Arial,sans-serif;
@@ -158,7 +160,7 @@
 
         function RotImageL() {
             setTimeout(RotImageR, 1000);
-            document.getElementById("questionProto").src = "images/anim/proto.png"; 
+            document.getElementById("questionProto").src = "images/anim/proto.png";
         }
 
         function RotImageR() {
@@ -180,6 +182,10 @@
                 trackn.innerHTML = "";
             }
         }
+
+        function toEpicPad() {
+            window.location.href = "https://davidlao27.github.io/davidlao/epicpad";
+        }
     </script>
 </head>
 <body bgcolor="black" onload="checkCookie(); RotImageL();">
@@ -192,8 +198,11 @@
     <!--<div class="topnav"><font size="2" color="lightgreen"><b><p align="center">Cool features coming soon!</p></b></font></div>-->
     <br>
     <br>
-    <img src="images/anim/proto.png" width="200vh" height="200vh" class="rotEle" id="questionProto" onclick="audioPlay()"></img>
-    <center><font size="5" id="curious">There is no more...</font></center>
+    <center><font size="5" color="red" id="curious" onclick="toEpicPad()">David's EpicPad</font></center>
+    <br>
+    <br>
+    <img src="images/anim/proto.png" width="100vh" height="100vh" class="rotEle" id="questionProto" onclick="audioPlay()"></img>
+    <center><font size="5" id="curious">Go check out EpicPad!</font></center>
     <center><font size="3" id="trackn"></font></center>
     <center>
         <audio controls preload="auto" id="audioAuto">
