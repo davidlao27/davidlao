@@ -87,6 +87,9 @@
             img {
                 -webkit-filter: drop-shadow(5px 5px 5px #000);
                 filter: drop-shadow(5px 5px 10px #000);
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                user-select: none;
             }
         }
 
@@ -136,9 +139,11 @@
             var user = getCookie("username");
             var theme = getCookie("theme");
             var isStared = getCookie("stared");
+            var welcomeTx = document.getElementById("welcome");
 
             if (user != "") {
                 document.getElementById("whois").innerHTML = user;
+                welcomeTx.innerHTML = "Welcome, " + user + "."
             }
 
             if (theme == "light") {
@@ -193,7 +198,7 @@
     <br>
     <br>
     <img src="images/anim/proto.png" width="200vh" height="200vh" class="rotEle" id="protoStare"></img>
-    <center><font size="5">Welcome. Update soon!</font></center>
+    <center><font size="5" id="welcome">Welcome, Guest.</font></center>
     <br>
     <center><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" width="66" height="23" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></center>
 </body>
