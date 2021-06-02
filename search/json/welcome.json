@@ -1,6 +1,6 @@
 {
   "title": "Welcome!",
   "date": "June 1st 2021",
-  "description": "Welcome to the example JSON file. Here's how the fetching process works: you search something in the search bar, it fetches two JSON files. The first one calls the GitHub REST API and the second one gets some data from the first fetch and does a second raw-file fetch, which is the one decoded and shown to you. Any questions? Contact davidlao :)"
+  "description": "Welcome to the example JSON file. Here's how the fetching process works: you search something in the search bar, it fetches two JSON files. The first one calls the GitHub REST API and the second one gets some data from the first fetch and does a second raw-file fetch, which is the one decoded and shown to you. Any questions? Contact davidlao :)",
   "tags": "june 2021, welcome, fetching"
 }
