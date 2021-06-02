@@ -3,13 +3,13 @@
 <head>
     <link rel="icon" type="image/png" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="davidlao's web - stuff" />
+    <meta property="og:title" content="davidlao's web - jsonfss" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://davidlao27.github.io/davidlao" />
-    <meta property="og:description" content="cool stuff I, davidlao, made!" />
+    <meta property="og:description" content="[Experimental] JSON Fetch(based) Search System" />
     <meta name="theme-color" content="#FF0000">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>davidlao - stuff</title>
+    <title>davidlao - jsonfss</title>
     <style>
         body {
             font-family: 'Segoe UI',Arial,sans-serif;
@@ -174,34 +174,33 @@
             document.getElementById("questionProto").src = "images/anim/protoR.png";
         }
 
-        function audioPlay() {
-            var sample = document.getElementById("audioAuto");
-            if (sample.paused) {
-                sample.volume = 0.1;
-                sample.play();
-                var trackn = document.getElementById("trackn");
-                trackn.innerHTML = "dwont bwe so cuwious =UwU=";
-            } else {
-                sample.pause();
-                sample.currentTime = 0;
-                var trackn = document.getElementById("trackn");
-                trackn.innerHTML = "";
+        async function updateSearch() {
+            var searchbo = document.getElementById("searchbox").value;
+            var searchbox = searchbo.toLowerCase();
+            var ftitle = document.getElementById("ftitle");
+            var fdesc = document.getElementById("fdesc");
+            var ftags = document.getElementById("ftags");
+
+            try {
+            var get = await Promise.all([
+                fetch('https://api.github.com/search/code?q=' + searchbox + '+repo:davidlao27/davidlao+extension:json').then((search) => search.json()),
+            ]);
+
+            var getl = await Promise.all([
+                fetch('https://davidlao27.github.io/davidlao/' + get[0].items[0].path).then((decoded) => decoded.json())
+            ]);
+                ftitle.innerHTML = getl[0].title
+                ftags.innerHTML = 'Tags: ' + getl[0].tags
+                fdesc.innerHTML = getl[0].description
+            } catch (error) {
+                console.log(error);
             }
-        }
-
-        function toEpicPad() {
-            window.location.href = "https://davidlao27.github.io/davidlao/epicpad";
-        }
-
-        function toExp() {
-            window.location.href = "https://davidlao27.github.io/davidlao/estuff";
-        }
+        }      
     </script>
 </head>
 <body bgcolor="black" onload="checkCookie(); RotImageL();">
     <div class="topnav">
-        <a href="https://davidlao27.github.io/davidlao">Back</a>
-        <a href="https://www.youtube.com/channel/UCTJydcT1E97aEx-8bHYgsWg">YouTube</a>
+        <a href="https://davidlao27.github.io/davidlao/estuff">Back</a>
         <a href="https://davidlao27.github.io/davidlao/settings" style="float: right;" id="whois" onmouseover="changeReg(this)" onmouseleave="revertReg(this)">Guest</a>
         <!-- Other pokemon can walk... but I can walk. -->
     </div>
@@ -209,21 +208,17 @@
     <br>
     <br>
     <center>
-        <font size="5" color="red" id="curious" onclick="toEpicPad()">STUPID TOOLS:</font><br>
-        <font size="4" color="red" id="curious" onclick="toEpicPad()">David's EpicPad</font>
-        <br>
-        <br>
-        <img src="images/anim/proto.png" width="100vh" height="100vh" class="rotEle" id="questionProto" onclick="audioPlay()"></img>
-        <font size="5" id="curious">Go check out EpicPad!</font><br>
-        <font size="3" id="trackn"></font><br><br>
-        <font size="5" color="lightgreen" id="curious" onclick="toExp()"><b>EXPERIMENTAL STUFF</b></font><br>
-
-    <audio controls preload="auto" id="audioAuto">
-    <source src="audio/gio/uwu.ogg" type="audio/ogg">
-    <source src="audio/gio/uwu.mp3" type="audio/mpeg">
-    Your browser does not support the audio element or MPEG audio.
-    </audio>
+        <font size="5" color="red" id="curious">Search for an exact JSON in the repo...</font>
+        <br><br>
+        <input type="text" placeholder="Maybe try 'welcome', 'june 2021'... You will get the first result." id="searchbox" name="fname" style="width: 50vw; font-size: 1px; text-align: center;"><br>
+        <button type="button" style="color: red; font-size: 18px; padding: 1vh;" onclick="updateSearch()"><b>Search</b></button><br><br>
+        <font size="5" color="red" id="ftitle"><b>Search for something!</b></font><br>
+        <i><font size="3" color="white" id="ftags">Tags will appear here</font></i><br><br>
+        <font size="4" color="white" id="fdesc">Then if a file with the word you searched is found, the fetching process will get back to you!</font>
     </center>
+    <br>
+    <br>
+    <img src="images/anim/proto.png" width="100vh" height="100vh" class="rotEle" id="questionProto" onclick="audioPlay()"></img>
     <br>
 </body>
 </html>

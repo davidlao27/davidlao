@@ -3,13 +3,13 @@
 <head>
     <link rel="icon" type="image/png" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="davidlao's web - stuff" />
+    <meta property="og:title" content="davidlao's web - experimental stuff" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://davidlao27.github.io/davidlao" />
-    <meta property="og:description" content="cool stuff I, davidlao, made!" />
+    <meta property="og:description" content="EXPERIMENTAL stuff I, davidlao, made!" />
     <meta name="theme-color" content="#FF0000">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>davidlao - stuff</title>
+    <title>davidlao - experimental stuff</title>
     <style>
         body {
             font-family: 'Segoe UI',Arial,sans-serif;
@@ -189,41 +189,26 @@
             }
         }
 
-        function toEpicPad() {
-            window.location.href = "https://davidlao27.github.io/davidlao/epicpad";
-        }
-
-        function toExp() {
-            window.location.href = "https://davidlao27.github.io/davidlao/estuff";
+        function toJSONFSS() {
+            window.location.href = "https://davidlao27.github.io/davidlao/jsonfss";
         }
     </script>
 </head>
 <body bgcolor="black" onload="checkCookie(); RotImageL();">
     <div class="topnav">
-        <a href="https://davidlao27.github.io/davidlao">Back</a>
-        <a href="https://www.youtube.com/channel/UCTJydcT1E97aEx-8bHYgsWg">YouTube</a>
+        <a href="https://davidlao27.github.io/davidlao/stuff">Back</a>
         <a href="https://davidlao27.github.io/davidlao/settings" style="float: right;" id="whois" onmouseover="changeReg(this)" onmouseleave="revertReg(this)">Guest</a>
         <!-- Other pokemon can walk... but I can walk. -->
     </div>
     <!--<div class="topnav"><font size="2" color="lightgreen"><b><p align="center">Cool features coming soon!</p></b></font></div>-->
     <br>
     <br>
-    <center>
-        <font size="5" color="red" id="curious" onclick="toEpicPad()">STUPID TOOLS:</font><br>
-        <font size="4" color="red" id="curious" onclick="toEpicPad()">David's EpicPad</font>
-        <br>
-        <br>
-        <img src="images/anim/proto.png" width="100vh" height="100vh" class="rotEle" id="questionProto" onclick="audioPlay()"></img>
-        <font size="5" id="curious">Go check out EpicPad!</font><br>
-        <font size="3" id="trackn"></font><br><br>
-        <font size="5" color="lightgreen" id="curious" onclick="toExp()"><b>EXPERIMENTAL STUFF</b></font><br>
-
-    <audio controls preload="auto" id="audioAuto">
-    <source src="audio/gio/uwu.ogg" type="audio/ogg">
-    <source src="audio/gio/uwu.mp3" type="audio/mpeg">
-    Your browser does not support the audio element or MPEG audio.
-    </audio>
-    </center>
+    <center><font size="5" color="lightgreen" id="curious" onclick="toJSONFSS()">JSONFSS 1.0 [ALPHA]</font></center>
+    <br>
+    <br>
+    <img src="images/anim/proto.png" width="100vh" height="100vh" class="rotEle" id="questionProto" onclick="audioPlay()"></img>
+    <center><font size="4" id="curious">Currently working on the (experimental) <font color="red">JSON F</font>etch <font color="red">S</font>earch <font color="red">S</font>ystem</font></center>
+    <center><font size="3" id="trackn"></font></center>
     <br>
 </body>
 </html>
