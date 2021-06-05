@@ -83,6 +83,16 @@
                     transform: rotate(10deg);
                 }
             }
+
+            @keyframes mymove2 {
+                25% {
+                    transform: rotate(25deg);
+                }
+
+                75% {
+                    transform: rotate(-25deg);
+                }
+            }
         }
 
         .rotEle {
@@ -90,6 +100,13 @@
             padding: 2vw;
             display: flex;
             animation: mymove 1s infinite;
+        }
+
+        .rotElel {
+            margin: auto;
+            padding: 2vw;
+            display: flex;
+            animation: mymove2 1s infinite;
         }
 
         #audioAuto {
@@ -164,33 +181,12 @@
             }
         }
 
-        function RotImageL() {
-            setTimeout(RotImageR, 1000);
-            document.getElementById("questionProto").src = "images/anim/proto.png";
-        }
-
-        function RotImageR() {
-            setTimeout(RotImageL, 1000);
-            document.getElementById("questionProto").src = "images/anim/protoR.png";
-        }
-
-        function audioPlay() {
-            var sample = document.getElementById("audioAuto");
-            if (sample.paused) {
-                sample.volume = 0.1;
-                sample.play();
-                var trackn = document.getElementById("trackn");
-                trackn.innerHTML = "dwont bwe so cuwious =UwU=";
-            } else {
-                sample.pause();
-                sample.currentTime = 0;
-                var trackn = document.getElementById("trackn");
-                trackn.innerHTML = "";
-            }
-        }
-
         function toEpicPad() {
             window.location.href = "https://davidlao27.github.io/davidlao/epicpad";
+        }
+
+        function toYoutube() {
+            window.location.href = "https://www.youtube.com/channel/UCTJydcT1E97aEx-8bHYgsWg";
         }
 
         function toExp() {
@@ -198,10 +194,9 @@
         }
     </script>
 </head>
-<body bgcolor="black" onload="checkCookie(); RotImageL();">
+<body bgcolor="black" onload="checkCookie();">
     <div class="topnav">
         <a href="https://davidlao27.github.io/davidlao">Back</a>
-        <a href="https://www.youtube.com/channel/UCTJydcT1E97aEx-8bHYgsWg">YouTube</a>
         <a href="https://davidlao27.github.io/davidlao/settings" style="float: right;" id="whois" onmouseover="changeReg(this)" onmouseleave="revertReg(this)">Guest</a>
         <!-- Other pokemon can walk... but I can walk. -->
     </div>
@@ -209,20 +204,14 @@
     <br>
     <br>
     <center>
-        <font size="5" color="red" id="curious" onclick="toEpicPad()">STUPID TOOLS:</font><br>
-        <font size="4" color="red" id="curious" onclick="toEpicPad()">David's EpicPad</font>
-        <br>
-        <br>
-        <img src="images/anim/proto.png" width="100vh" height="100vh" class="rotEle" id="questionProto" onclick="audioPlay()"></img>
-        <font size="5" id="curious">Go check out EpicPad!</font><br>
-        <font size="3" id="trackn"></font><br><br>
-        <font size="5" color="lightgreen" id="curious" onclick="toExp()"><b>EXPERIMENTAL STUFF</b></font><br>
-
-    <audio controls preload="auto" id="audioAuto">
-    <source src="audio/gio/uwu.ogg" type="audio/ogg">
-    <source src="audio/gio/uwu.mp3" type="audio/mpeg">
-    Your browser does not support the audio element or MPEG audio.
-    </audio>
+        <font size="3" color="lightgreen" id="curious" onclick="toExp()"><b>OTHER EXPERIMENTAL STUFF</b></font><br><br>
+        <font size="5" color="red" id="curious" onclick="toEpicPad()"><i>SOME FINISHED STUFF I GUESS:</i></font><br>
+        <font size="4" color="red" id="curious" onclick="toEpicPad()"><b>David's EpicPad</b></font>
+<br>
+<br>
+<br>
+        <font size="4" id="curious">Uploading stuff soon at...</font><br>
+        <img src="images/yt.png" height="50vh" class="rotElel" onclick="toYoutube()"></img>
     </center>
     <br>
 </body>
